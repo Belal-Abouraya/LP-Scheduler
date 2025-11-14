@@ -257,3 +257,9 @@ class ScheduleView(QWidget):
         anim.start()
         self.anim = anim
 
+
+class Heading(QLabel):
+    def __init__(self, text):
+        super().__init__(text)
+        self.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.setStyleSheet("font-size: 20px;font-weight: bold;font-family: Arial;")

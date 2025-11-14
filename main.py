@@ -14,6 +14,7 @@ vbox = QVBoxLayout(container)
 vbox.setAlignment(Qt.AlignmentFlag.AlignTop)
 vbox.setSpacing(20)
 
+vbox.addWidget(Heading('Tasks'))
 models_list = ModelList()
 vbox.addLayout(models_list, 0)
 
@@ -31,7 +32,7 @@ max_no_continuous_slots_view = MaxNoContinuousSLotsView()
 vbox.addLayout(max_no_continuous_slots_view)
 
 
-vbox.addWidget(QLabel('Blocked Slots', alignment=Qt.AlignmentFlag.AlignCenter))
+vbox.addWidget(Heading('Blocked Slots'))
 blocked_slots_list = BlockedSlotModelList()
 vbox.addLayout(blocked_slots_list)
 add_blocked_slot_button = QPushButton("Add Blocked Slot")
@@ -65,8 +66,16 @@ def create_schedule():
 
     max_no_continuous_slots = max_no_continuous_slots_view.get_max_no_continuous()
     schedule = get_schedule(models, blocked_slots_models, max_no_continuous_slots)
+    schedule_container = QWidget()
+    layout = QVBoxLayout(schedule_container)
     view = ScheduleView(schedule)
-    main_layout.addWidget(view)
+    layout.addWidget(view)
+    back_button = QPushButton('Back')
+    back_button.setMinimumHeight(30)
+    back_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+    back_button.clicked.connect(lambda: main_layout.removeWidget(schedule_container))
+    layout.addWidget(back_button)
+    main_layout.addWidget(schedule_container)
     main_layout.setCurrentIndex(1)
     view.fade()
 

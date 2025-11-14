@@ -1,0 +1,64 @@
+# 📅 Smart To-Do List Scheduler  
+*A Linear & Nonlinear Optimization Project (NETW904)*
+
+## 📘 Overview  
+This project implements a **smart task scheduler** that transforms a set of tasks (with deadlines, durations, and priorities) into an **optimized daily schedule** using linear and nonlinear optimization.
+
+The project includes a **Python user interface (UI)** that allows users to create tasks, define blocked time slots, and visualize the final schedule in a **semi-week schedule table**.
+
+---
+
+## ✨ Features  
+
+### 🔢 Optimization Engine  
+- Mathematical model for task scheduling  
+- Supports task attributes:  
+  - Duration  
+  - Deadline  
+  - Priority weight  
+  - Earliest start time 
+  - Daily work window  
+  - Non-overlapping tasks  
+  - Optional maximum continuous work limits
+
+### 🖥️ Python User Interface  
+The project includes a custom Python UI that provides:
+
+- Adding new tasks with all required fields  
+- Adding **blocked slots** (meetings, classes, etc.)  
+- Generating an optimized schedule  
+- Displaying the schedule in a **semi-week table**
+
+---
+
+## 🧩 Schedule Visualization  
+The scheduler outputs a semi-week timetable:
+
+- Columns represent **days of the week**  
+- Rows represent **slots** 
+- Empty slots represent available free time  
+
+This layout helps users easily understand and adjust their weekly plan.
+
+---
+
+## 🔧 Technologies Used  
+- **Python**  
+- Optimization libraries (PuLP)  
+- GUI Framework (PyQt)
+
+---
+
+## 🎯 Optimization Objectives  
+The scheduler aims to:
+
+1. **Maximize total priority completed before deadlines**
+
+---
+
+## 📤 Deliverables  
+- Mathematical formulation  
+- Implementation of optimization-based scheduler  
+- Python UI for interaction and visualization  
+- Test scenarios + results  
+- Discussion and conclusions  

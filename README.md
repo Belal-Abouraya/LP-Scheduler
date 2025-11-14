@@ -1,5 +1,4 @@
 # 📅 Smart To-Do List Scheduler  
-*A Linear & Nonlinear Optimization Project (NETW904)*
 
 ## 📘 Overview  
 This project implements a **smart task scheduler** that transforms a set of tasks (with deadlines, durations, and priorities) into an **optimized daily schedule** using linear and nonlinear optimization.
@@ -53,12 +52,3 @@ This layout helps users easily understand and adjust their weekly plan.
 The scheduler aims to:
 
 1. **Maximize total priority completed before deadlines**
-
----
-
-## 📤 Deliverables  
-- Mathematical formulation  
-- Implementation of optimization-based scheduler  
-- Python UI for interaction and visualization  
-- Test scenarios + results  
-- Discussion and conclusions  

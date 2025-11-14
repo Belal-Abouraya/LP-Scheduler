@@ -1,9 +1,9 @@
 # 📅 Smart To-Do List Scheduler  
 
 ## 📘 Overview  
-This project implements a **smart task scheduler** that transforms a set of tasks (with deadlines, durations, and priorities) into an **optimized daily schedule** using linear and nonlinear optimization.
+This project implements a **smart task scheduler** that transforms a set of tasks (with deadlines, durations, and priorities) into an **optimized schedule** using linear programming.
 
-The project includes a **Python user interface (UI)** that allows users to create tasks, define blocked time slots, and visualize the final schedule in a **semi-week schedule table**.
+The project includes a **Python user interface (UI)** that allows users to create tasks, define blocked time slots, and visualize the final schedule in a **table**.
 
 ---
 
@@ -26,18 +26,18 @@ The project includes a custom Python UI that provides:
 - Adding new tasks with all required fields  
 - Adding **blocked slots** (meetings, classes, etc.)  
 - Generating an optimized schedule  
-- Displaying the schedule in a **semi-week table**
+- Displaying the schedule in a **table**
 
 ---
 
 ## 🧩 Schedule Visualization  
-The scheduler outputs a semi-week timetable:
+The scheduler outputs a timetable:
 
-- Columns represent **days of the week**  
-- Rows represent **slots** 
+- Rows represent **days**  
+- Columns represent **slots** 
 - Empty slots represent available free time  
 
-This layout helps users easily understand and adjust their weekly plan.
+This layout helps users easily understand and adjust their plan.
 
 ---
 
@@ -49,6 +49,4 @@ This layout helps users easily understand and adjust their weekly plan.
 ---
 
 ## 🎯 Optimization Objectives  
-The scheduler aims to:
-
-1. **Maximize total priority completed before deadlines**
+The scheduler aims to **maximize the sum of the priorities of the tasks completed before their deadlines**

@@ -1,7 +1,7 @@
 from pulp import *
 
 
-class Schedule:
+class Scheduler:
     """
         Class that contains the core functionality of the scheduling model.
     """
@@ -15,7 +15,7 @@ class Schedule:
         :param a: Maximum number of slots without break.
         :param b: Slot block constraints for each task. Can be used to set start and end time for task.
         :param c: Global slot block constraints.
-        :param d: Duration of each task.
+        :param d: Duration of each task. (slots)
         :param p: Priority of each task.
         """
         self.f = LpVariable.dicts('f', range(n), cat='Binary')
@@ -53,25 +53,25 @@ class Schedule:
 
 
 # Example usage
-n = 3
-m = 3
-a = 1
-b = [[0, 1, 1], [1, 0, 1], [1, 1, 1]]
-c = [1, 1, 1]
-d = [1, 1, 1]
-p = [3, 1, 1]
-sc = Schedule(n, m, a, b, c, d, p)
-
-sc_model = sc.get_model()
-print(sc_model)
-sc_model.solve()
-print(LpStatus[sc_model.status])
-f = sc.get_f()
-x = sc.get_x()
-for i in range(n):
-    print(f[i].value())
-
-for i in range(n):
-    for j in range(m):
-        print(x[i][j].value(), end=' ')
-    print()
+# n = 3
+# m = 3
+# a = 1
+# b = [[0, 1, 1], [1, 0, 1], [1, 1, 1]]
+# c = [1, 1, 1]
+# d = [1, 1, 1]
+# p = [3, 1, 1]
+# sc = Schedule(n, m, a, b, c, d, p)
+#
+# sc_model = sc.get_model()
+# print(sc_model)
+# sc_model.solve()
+# print(LpStatus[sc_model.status])
+# f = sc.get_f()
+# x = sc.get_x()
+# for i in range(n):
+#     print(f[i].value())
+#
+# for i in range(n):
+#     for j in range(m):
+#         print(x[i][j].value(), end=' ')
+#     print()

@@ -40,7 +40,7 @@ class Scheduler:
             self.model += lpSum(self.x[i][k] for i in range(n) for k in range(j, j + a + 1)) <= a
 
         # Add objective function
-        self.model += lpSum(self.f[i] * p[i] for i in range(n))
+        self.model += lpSum(0.5 * self.f[i] * p[i] + 0.5 * self.f[i] for i in range(n))
 
     def get_model(self):
         return self.model
@@ -50,7 +50,6 @@ class Scheduler:
 
     def get_f(self):
         return self.f
-
 
 # Example usage
 # n = 3

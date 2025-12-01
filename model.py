@@ -1,10 +1,11 @@
 from scheduler import Scheduler
 
-NO_OF_DAYS = 7
-NO_OF_SLOTS_PER_DAY = 5
+NO_OF_DAYS = 3
+NO_OF_SLOTS_PER_DAY = 4
 MAX_PRIORITY = 10
 MAX_DURATION = 10
 MAX_NO_CONTINUOUS_SLOTS = 10
+
 
 class Model:
     count = 0
@@ -31,7 +32,6 @@ class Model:
             return f"Task {self.id}: Duration cannot be longer than the time difference between earliest start and deadline"
         return None
 
-
     def get_deadline(self):
         """Zero Based; Flatten"""
         return (self.deadline_day - 1) * NO_OF_SLOTS_PER_DAY + (self.deadline_slot - 1)
@@ -55,7 +55,6 @@ class BlockedSlotModel:
     def get_blocked_slot(self):
         """Zero Based; Flatten"""
         return (self.day - 1) * NO_OF_SLOTS_PER_DAY + (self.slot - 1)
-
 
 
 def get_schedule(models, blocked_slots_models, max_no_continuous_slots):

@@ -7,6 +7,14 @@ models = []
 blocked_slots_models = []
 
 app = QApplication([])
+app.setFont(QFont('Arial', 14))
+app.setStyleSheet("""
+    QPushButton {
+        background-color: white;
+        border: 1px solid #444;
+        border-radius: 6px;
+    }
+""")
 scroll = QScrollArea()
 scroll.setWidgetResizable(True)
 container = QWidget()
@@ -47,7 +55,7 @@ vbox.addWidget(add_blocked_slot_button)
 
 create_schedule_button = QPushButton('Create Schedule')
 create_schedule_button.setMinimumHeight(30)
-create_schedule_button.setStyleSheet("background-color: #2B2D30; border: 1px solid white; border-radius: 8px;")
+create_schedule_button.setStyleSheet("background-color: #DCDDE1; border: 1px solid white; border-radius: 8px;")
 create_schedule_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
 def show_msg(title, details):

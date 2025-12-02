@@ -1,4 +1,5 @@
 from PySide6.QtCore import Qt, QSize, QPropertyAnimation, QPoint
+from PySide6.QtGui import QFont
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QTextEdit, QComboBox, QHBoxLayout, QLabel, \
     QTableWidget, QTableWidgetItem, QGridLayout, QHeaderView
 
@@ -220,20 +221,21 @@ class ScheduleView(QWidget):
     def __init__(self, schedule: list[list[Model|None]]):
         super().__init__()
         days_container = QWidget()
-        days_container.setStyleSheet("background: qlineargradient(x1: 0, y1: 0,x2: 0, y2: 1,stop: 0 #1E1E1E,stop: 0.5 #2D2D2D,stop: 1 #1E1E1E);")
+        days_container.setStyleSheet("background: qlineargradient(x1: 0, y1: 0,x2: 0, y2: 1,stop: 0 #F5F5F5,stop: 0.5 #E6E6E6,stop: 1 #F5F5F5);")
         days_list = QVBoxLayout(days_container)
         for i in range(1, m.NO_OF_DAYS + 1):
             label = QLabel(f'Day {i}', alignment=Qt.AlignmentFlag.AlignCenter)
             label.setMinimumSize(QSize(150, 30))
             days_list.addWidget(label)
         slots_container = QWidget()
-        slots_container.setStyleSheet("background: qlineargradient(x1: 0, y1: 0,x2: 1, y2: 0,stop: 0 #1E1E1E,stop: 0.5 #2D2D2D,stop: 1 #1E1E1E);")
+        slots_container.setStyleSheet("background: qlineargradient(x1: 0, y1: 0,x2: 1, y2: 0,stop: 0 #F5F5F5,stop: 0.5 #E6E6E6,stop: 1 #F5F5F5);")
         slots_list = QHBoxLayout(slots_container)
         for i in range(1,m.NO_OF_SLOTS_PER_DAY + 1):
             label = QLabel(f'Slot {i}', alignment=Qt.AlignmentFlag.AlignCenter)
             label.setMinimumSize(QSize(150, 30))
             slots_list.addWidget(label)
         schedule_view = QTableWidget(m.NO_OF_DAYS, m.NO_OF_SLOTS_PER_DAY)
+        schedule_view.setFont(QFont("Arial", 14))
         schedule_view.horizontalHeader().setVisible(False)
         schedule_view.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
         schedule_view.verticalHeader().setVisible(False)
@@ -262,4 +264,4 @@ class Heading(QLabel):
     def __init__(self, text):
         super().__init__(text)
         self.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.setStyleSheet("font-size: 20px;font-weight: bold;font-family: Arial;")
+        self.setStyleSheet("font-size: 22px;font-weight: bold;font-family: Arial;")
